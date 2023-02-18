@@ -19,10 +19,10 @@
 		F066A95B299F4D4200884F6D /* LatestResultsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066A95A299F4D4200884F6D /* LatestResultsCollectionViewCell.swift */; };
 		F066A95D299F4D5000884F6D /* TeamsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066A95C299F4D5000884F6D /* TeamsCollectionViewCell.swift */; };
 		F066A960299F555A00884F6D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F066A95F299F555A00884F6D /* Alamofire */; };
-		F067131B29A0B2CD006AA83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F067131A29A0B2CC006AA83D /* Assets.xcassets */; };
-		F067131D29A0B2E0006AA83D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F067131C29A0B2E0006AA83D /* CollectionViewCell.swift */; };
 		F0810C85299DF50F0054DCB6 /* SportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0810C84299DF50F0054DCB6 /* SportsTableViewController.swift */; };
 		F08980D729A0768C005E4A8F /* MainViewContinue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08980D629A0768C005E4A8F /* MainViewContinue.swift */; };
+		F098D7FA29A0B78000794988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F098D7F929A0B78000794988 /* Assets.xcassets */; };
+		F098D7FC29A0B7AE00794988 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F098D7FB29A0B7AE00794988 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +41,10 @@
 		F066A958299F4D1500884F6D /* UpComingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingCollectionViewCell.swift; sourceTree = "<group>"; };
 		F066A95A299F4D4200884F6D /* LatestResultsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestResultsCollectionViewCell.swift; sourceTree = "<group>"; };
 		F066A95C299F4D5000884F6D /* TeamsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsCollectionViewCell.swift; sourceTree = "<group>"; };
-		F067131A29A0B2CC006AA83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Desktop/Rizk Tasks/IOS/NoteApp/NoteApp/Assets.xcassets"; sourceTree = "<group>"; };
-		F067131C29A0B2E0006AA83D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = "../../../Desktop/SportsApp test/SportsApp/CollectionViewCell.swift"; sourceTree = "<group>"; };
 		F0810C84299DF50F0054DCB6 /* SportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsTableViewController.swift; sourceTree = "<group>"; };
 		F08980D629A0768C005E4A8F /* MainViewContinue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewContinue.swift; sourceTree = "<group>"; };
+		F098D7F929A0B78000794988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F098D7FB29A0B7AE00794988 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +102,12 @@
 				F01C965C299DBD4E00843CF9 /* SceneDelegate.swift */,
 				F01C965E299DBD4E00843CF9 /* ViewController.swift */,
 				F01C9660299DBD4E00843CF9 /* Main.storyboard */,
-				F067131C29A0B2E0006AA83D /* CollectionViewCell.swift */,
+				F098D7FB29A0B7AE00794988 /* CollectionViewCell.swift */,
 				F0810C84299DF50F0054DCB6 /* SportsTableViewController.swift */,
 				F066A954299F2B9400884F6D /* SportsContinue.swift */,
 				F01C9665299DBD5000843CF9 /* LaunchScreen.storyboard */,
 				F01C9668299DBD5000843CF9 /* Info.plist */,
-				F067131A29A0B2CC006AA83D /* Assets.xcassets */,
+				F098D7F929A0B78000794988 /* Assets.xcassets */,
 				F066A956299F4C9E00884F6D /* MainViewController.swift */,
 				F08980D629A0768C005E4A8F /* MainViewContinue.swift */,
 				F066A958299F4D1500884F6D /* UpComingCollectionViewCell.swift */,
@@ -184,7 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F01C9667299DBD5000843CF9 /* LaunchScreen.storyboard in Resources */,
-				F067131B29A0B2CD006AA83D /* Assets.xcassets in Resources */,
+				F098D7FA29A0B78000794988 /* Assets.xcassets in Resources */,
 				F01C9662299DBD4E00843CF9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,7 +248,7 @@
 				F0810C85299DF50F0054DCB6 /* SportsTableViewController.swift in Sources */,
 				F01C965D299DBD4E00843CF9 /* SceneDelegate.swift in Sources */,
 				F066A95D299F4D5000884F6D /* TeamsCollectionViewCell.swift in Sources */,
-				F067131D29A0B2E0006AA83D /* CollectionViewCell.swift in Sources */,
+				F098D7FC29A0B7AE00794988 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
