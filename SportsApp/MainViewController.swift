@@ -86,7 +86,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             case 1 , 3:
             
                 
-                cell.configureCell(homeTitle: homeTeam[indexPath.row], awayTitle: awayTeam[indexPath.row], eventDate: eventDate[indexPath.row], homeLogo: awayTeamLogo[indexPath.row] , awaylogo: awayTeamLogo[indexPath.row] )
+                cell.configureCell(homeTitle: homeTeam[indexPath.row], awayTitle: awayTeam[indexPath.row], eventDate: eventDate[indexPath.row], homeLogo: "football" , awaylogo: "football" )
                 
             default:
                 break

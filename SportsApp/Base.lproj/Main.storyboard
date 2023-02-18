@@ -62,8 +62,8 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="173" height="209"/>
                                         <connections>
-                                            <outlet property="imageV" destination="KCk-td-HXb" id="9P0-k7-JP4"/>
-                                            <outlet property="nameLabel" destination="BaB-dT-7tc" id="2od-Wt-K1o"/>
+                                            <outlet property="imageV" destination="KCk-td-HXb" id="Y8C-iw-L2a"/>
+                                            <outlet property="sportLabel" destination="BaB-dT-7tc" id="cUV-7u-RFl"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
