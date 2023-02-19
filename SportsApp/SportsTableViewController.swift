@@ -3,6 +3,7 @@ import UIKit
 class SportsTableViewController: UITableViewController {
     
     var legTitles: [String] = []
+    var legImg: [String] = []
     var legCountry: [String] = []
     var data: [[String: Any]] = []
     var comeFrom : Int = 0
@@ -36,22 +37,60 @@ class SportsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCell", for: indexPath)
-        cell.textLabel?.text = legTitles[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "System", size: 22.0)
-        cell.detailTextLabel?.text = legCountry[indexPath.row]
-        cell.detailTextLabel?.font = UIFont(name: "System", size: 22.0)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCell", for: indexPath) as! TableViewCell
+        cell.contentView.layer.cornerRadius = 20
+        cell.contentView.layer.masksToBounds = true
         
+        cell.legLabel.text = legTitles[indexPath.row]
+
+//        cell.legImage.image = UIImage(named: "Basketball")
+//        var str:String?
+//        str = legImg[indexPath.row] ?? "Basketball"
+//        let predicate = NSPredicate(format:"SELF ENDSWITH[c] %@", ".jpg")
+//        let result = predicate.evaluate(with: str)
+//
+//        //MARK: - kingfisher
+//        if result{
+//            let url = URL(string: str!)
+//            cell.legImage.kf.setImage(with: url)
+//
+//        }else{
+//            cell.legImage.image = UIImage(named: "Basketball")
+//        }
+        
+        switch comeFrom {
+            
+        case 0 :
+            var str = legImg[indexPath.row]
+            let predicate = NSPredicate(format:"SELF ENDSWITH[c] %@", ".png")
+            let result = predicate.evaluate(with: str)
+            
+            //MARK: - kingfisher
+            if result{
+                let url = URL(string: str)
+                cell.legImage.kf.setImage(with: url)
+                
+            }else{
+                cell.legImage.image = UIImage(named: "Basketball")
+            }
+        case 1, 2, 3:
+            cell.legImage.image = UIImage(named: "Basketball")
+        default:
+            break
+        }
+ 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 90
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let main = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        
         switch comeFrom {
             
         case 0 :

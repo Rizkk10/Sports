@@ -28,6 +28,7 @@ extension SportsTableViewController {
                     self.data = result
                     self.legTitles = result.compactMap { $0["league_name"] as? String }
                     self.legCountry = result.compactMap { $0["country_name"] as? String }
+                    self.legImg = result.compactMap { $0["league_logo"] as? String }
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -59,6 +60,7 @@ extension SportsTableViewController {
                     self.data = result
                     self.legTitles = result.compactMap { $0["league_name"] as? String }
                     self.legCountry = result.compactMap { $0["league_year"] as? String }
+                    self.legImg = result.compactMap { $0["league_logo"] as? String }
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
