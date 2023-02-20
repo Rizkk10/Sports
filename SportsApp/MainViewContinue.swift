@@ -13,15 +13,6 @@ extension MainViewController {
     
     func fetchData(apiLink : String, compilation: @escaping (DetailsResponse?) -> Void)
     {
-//        let baseURL = "https://apiv2.allsportsapi.com"
-//        let apiKey = "ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
-//        let metParam = "Fixtures"
-////        let date = "&from=2022-05-18&to=2022-05-18"
-//        let date = "&from=2023-02-17&to=2023-02-17"
-//        let urlString = "\(baseURL)/\(sportType)/?met=\(metParam)&APIkey=\(apiKey)\(date)"
-//
-//        let Football = "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=44ec41896869760bf9da8e3b2ccd2ea8bca5c24e0269d0102507eed1e78a3ae1&from=2021-05-18&to=2021-05-18"
-        
         AF.request(apiLink).response
         { response in
             if let data = response.data {
@@ -48,15 +39,29 @@ extension MainViewController {
 }
 
 enum upcomingApi : String {
-
+    
     case Football = "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=44ec41896869760bf9da8e3b2ccd2ea8bca5c24e0269d0102507eed1e78a3ae1&from=2021-05-18&to=2021-05-18"
     case Basketball = "https://apiv2.allsportsapi.com/basketball/?met=Fixtures&APIkey=44ec41896869760bf9da8e3b2ccd2ea8bca5c24e0269d0102507eed1e78a3ae1&from=2022-05-23&to=2022-05-23"
     case Cricket = "https://apiv2.allsportsapi.com/cricket/?met=Fixtures&APIkey=44ec41896869760bf9da8e3b2ccd2ea8bca5c24e0269d0102507eed1e78a3ae1&from=2022-03-13&to=2022-03-13"
     case Tennis = "https://apiv2.allsportsapi.com/tennis/?met=Fixtures&APIkey=44ec41896869760bf9da8e3b2ccd2ea8bca5c24e0269d0102507eed1e78a3ae1&from=2020-06-03&to=2020-06-03"
-
-}
-    // fetch football and basketball data
     
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// fetch football and basketball data
+
 //    func fetchUpcomingResultData(apiLink : String){
 //
 //        let url = URL(string: apiLink)!

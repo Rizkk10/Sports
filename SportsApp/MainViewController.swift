@@ -17,12 +17,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
     @IBOutlet weak var latestResultsCell: UICollectionView!
     
     
-    //    var homeTeam: [String] = []
-    //    var awayTeam: [String] = []
-    //    var awayTeamLogo: [Any] = []
-    //    var homeTeamLogo: [Any] = []
-    //    var eventDate: [String] = []
-    //    var homeTeamKey: [Int] = []
+    
     var index : Int = 0
     var dataDetails : DetailsResponse?
     var sportType = ""
@@ -31,19 +26,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //fetch data
-        //        fetchData { result in
-        //            DispatchQueue.main.async {
-        //                self.dataDetails = result
-        //                self.upComingCell.reloadData()
-        //                self.latestResultsCell.reloadData()
-        //                self.teamsCell.reloadData()
-        //            }
-        //        }
-        
-        
-        //
+      
         
         // to know where i come from
         
@@ -116,10 +99,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             default:
                 break
             }
-            
-            
-            
-            
+               
             return cell
         }
         
@@ -129,22 +109,41 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upComing", for: indexPath) as! UpComingCollectionViewCell
             let team = dataDetails?.result[indexPath.row]
             
-            //            switch index {
-            //                // FootBall and Cricket
-            //            case 0 , 2:
-            //                cell.configureCell(homeTitle: (team?.event_home_team)!, awayTitle: (team?.event_away_team)!, eventDate: (team?.event_date)!, homeLogo: (team?.home_team_logo)!  , awaylogo: (team?.away_team_logo)! )
-            //                // Basketball and tennis
-            //            case 1 , 3:
-            //
-            //
-            //                cell.configureCell(homeTitle: (team?.event_home_team)!, awayTitle: (team?.event_away_team)!, eventDate: (team?.event_date)!, homeLogo: (team?.home_team_logo)!  , awaylogo: (team?.away_team_logo)! )
-            //
-            //            default:
-            //                break
-            //            }
-            
+            switch index {
+            case 0 :
+                // FootBall
+                cell.configureCell(homeTitle: (team?.event_home_team)! , awayTitle: (team?.event_away_team)!, eventDate: (team?.event_date)! , homeLogo: (team?.home_team_logo)!, awaylogo: (team?.away_team_logo)!, eventTime:(team?.event_time)!)
+            case 1 :
+                // BasketBall
+                let urlHome = URL(string: (team?.home_team_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+                let urlAway = URL(string: (team?.away_team_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+                cell.configureCell(homeTitle: (team?.event_home_team)!, awayTitle: (team?.event_away_team)!, eventDate: (team?.event_date)! , homeLogo:"" , awaylogo: "", eventTime: (team?.event_time)!)
+                cell.homeTeamImageView.kf.setImage(with: urlHome)
+                cell.awayTeamImageView.kf.setImage(with: urlAway)
+                
+            case 2 :
+                //Cricket
+                cell.configureCell(homeTitle: (team?.event_home_team)!, awayTitle: (team?.event_away_team)!, eventDate: (team?.event_date_stop)! , homeLogo:"" , awaylogo: "", eventTime: (team?.event_time)!)
+                let urlHome = URL(string: (team?.event_home_team_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+                cell.homeTeamImageView.kf.setImage(with: urlHome)
+                let urlAway = URL(string: (team?.event_away_team_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+                cell.awayTeamImageView.kf.setImage(with: urlAway)
+            case 3 :
+                //tennis
+                cell.configureCell(homeTitle: (team?.event_first_player)!, awayTitle: (team?.event_second_player)!, eventDate: (team?.event_date)! , homeLogo:"" , awaylogo: "", eventTime: (team?.event_time)!)
+                let urlHome = URL(string: (team?.event_first_player_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+                cell.homeTeamImageView.kf.setImage(with: urlHome)
+                let urlAway = URL(string: (team?.event_second_player_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+                cell.awayTeamImageView.kf.setImage(with: urlAway)
+                
+                
+            default :
+                break
+            }
             return cell
         }
+        
+        
         
         // cofiguration  cell for Latest Results
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "latestResults", for: indexPath) as! LatestResultsCollectionViewCell
@@ -165,7 +164,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             cell.eventTimeLabel.text = team?.event_time
             cell.eventFinalResultLabel.text = team?.event_final_result
             
-            // Basketball 
+            // Basketball
         case 1:
             cell.homeTeamLabel.text = team?.event_home_team
             cell.awayTeamLabel.text = team?.event_away_team
@@ -195,8 +194,8 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             
             //tennis
         case 3:
-            cell.homeTeamLabel.text = team?.event_home_team
-            cell.awayTeamLabel.text = team?.event_away_team
+            cell.homeTeamLabel.text = team?.event_first_player
+            cell.awayTeamLabel.text = team?.event_second_player
             
             let urlHome = URL(string: (team?.event_first_player_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
             cell.homeTeamImageView.kf.setImage(with: urlHome)
@@ -212,12 +211,15 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
         }
         return cell
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 2
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == upComingCell{

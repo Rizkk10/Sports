@@ -197,7 +197,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ca4-29-6OA">
-                                                    <rect key="frame" x="160" y="121" width="48" height="24"/>
+                                                    <rect key="frame" x="166" y="98" width="48" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ios-Rw-wX9">
+                                                    <rect key="frame" x="166" y="130" width="48" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -210,6 +217,7 @@
                                             <outlet property="awayTeamImageView" destination="wLJ-qu-MWO" id="Ibk-69-pPh"/>
                                             <outlet property="awayTeamLabel" destination="4k4-NL-tHV" id="ccz-rX-CdM"/>
                                             <outlet property="eventDateLabel" destination="Ca4-29-6OA" id="hBj-LY-9Vb"/>
+                                            <outlet property="eventTimeLabel" destination="Ios-Rw-wX9" id="Ia0-Hg-hve"/>
                                             <outlet property="homeTeamImageView" destination="Mc7-mW-Bfe" id="6nr-ru-CRk"/>
                                             <outlet property="homeTeamLabel" destination="KZv-pl-ydc" id="apn-Ft-41w"/>
                                             <outlet property="upComingLabel" destination="8iO-Ni-isJ" id="1iW-yr-FxA"/>

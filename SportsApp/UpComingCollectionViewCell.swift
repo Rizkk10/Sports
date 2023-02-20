@@ -23,48 +23,28 @@ class UpComingCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var awayTeamLabel: UILabel!
     
-    func configureCell(homeTitle : String , awayTitle : String , eventDate : String , homeLogo : String , awaylogo : String){
-        
+    @IBOutlet weak var eventTimeLabel: UILabel!
+    
+    
+    
+    func configureCell(homeTitle : String , awayTitle : String , eventDate : String , homeLogo : String , awaylogo : String , eventTime : String){
         
         self.layer.cornerRadius = 25
         
         homeTeamLabel.text = homeTitle
         awayTeamLabel.text = awayTitle
         eventDateLabel.text = eventDate
+        eventTimeLabel.text = eventTime
+        let urlHome = URL(string: homeLogo)
         
-        
-        let url = URL(string: homeLogo)
-        
+        //let urlHome = URL(string: (homeLogo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+        homeTeamImageView.kf.setImage(with: urlHome)
         homeTeamImageView.kf.indicatorType = .activity
         
-        homeTeamImageView.kf.setImage(
-            with: url,
-            placeholder: "football" as? Placeholder ,
-            options: [
-                .scaleFactor(UIScreen.main.scale),
-                .transition(.fade(1)),
-                .cacheOriginalImage
-            ],
-            progressBlock: nil
-        )
+        let urlAway = URL(string: awaylogo)
         
-        let url2 = URL(string: awaylogo)
+        //let urlAway = URL(string: (awaylogo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+        awayTeamImageView.kf.setImage(with: urlAway)
         
-        awayTeamImageView.kf.indicatorType = .activity
-        
-        awayTeamImageView.kf.setImage(
-            with: url2,
-            placeholder: "football" as? Placeholder  ,
-            options: [
-                .scaleFactor(UIScreen.main.scale),
-                .transition(.fade(1)),
-                .cacheOriginalImage
-            ],
-            progressBlock: nil
-        )
     }
-    
-    
-    
-    
 }
