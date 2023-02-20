@@ -15,9 +15,20 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
     var dataTeam : TeamResponse?
     @IBOutlet weak var teamImg: UIImageView!
     @IBOutlet weak var teamName: UILabel!
+    
+    @IBOutlet weak var favButton: UIButton!
+    
+    
     var sportType = ""
     var teamKey = ""
     var teeamImg = ""
+    
+    
+    
+    var favArray = [String]()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -42,7 +53,35 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
             }
         }
         //
+        print(favArray)
     }
+    
+    
+    
+    @IBAction func favButtonAction(_ sender: Any) {
+        var con1 = UIButton.Configuration.plain()
+        con1.buttonSize = .large
+        con1.cornerStyle = .medium
+        con1.image = UIImage(systemName: "heart.fill")
+        
+        var con2 = UIButton.Configuration.plain()
+        con2.buttonSize = .large
+        con2.cornerStyle = .medium
+        con2.image = UIImage(systemName: "heart")
+        
+        //add to fav
+        if (favButton.configuration?.image == UIImage(systemName: "heart")){
+            favButton.configuration = con1
+            favArray.append(teamName.text!)
+            
+        }
+        //remove from fav
+        else if (favButton.configuration?.image == UIImage(systemName: "heart.fill")){
+            favButton.configuration = con2
+        }
+    }
+    
+    
 }
 //MARK: - fetch the data for teams
 

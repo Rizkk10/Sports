@@ -191,7 +191,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             
             cell.eventDateLabel.text = team?.event_date_stop
             cell.eventTimeLabel.text = team?.event_time
-            cell.eventFinalResultLabel.text = team?.event_away_final_result
+            cell.eventFinalResultLabel.text = team?.event_home_final_result
             
             //tennis
         case 3:

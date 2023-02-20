@@ -24,7 +24,7 @@ class Results:Decodable{
     var event_first_player_logo:String?//tennis
     var event_second_player_logo:String?//tennis
     var event_date_stop:String? //cricket
-    var event_away_final_result:String? //cricket
+    var event_home_final_result:String? //cricket
     
 }
 
