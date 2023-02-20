@@ -13,6 +13,9 @@
 		D8A8767D29A3D2A5002EDB3B /* SplashTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A8767C29A3D2A5002EDB3B /* SplashTabBarController.swift */; };
 		D8A8767F29A3D2C8002EDB3B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A8767E29A3D2C8002EDB3B /* SplashViewController.swift */; };
 		D8A8768129A3D36F002EDB3B /* 2.json in Resources */ = {isa = PBXBuildFile; fileRef = D8A8768029A3D36F002EDB3B /* 2.json */; };
+		D8A8768329A3D6F4002EDB3B /* TeamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A8768229A3D6F4002EDB3B /* TeamResponse.swift */; };
+		D8A8768529A3D738002EDB3B /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A8768429A3D738002EDB3B /* TeamDetailsViewController.swift */; };
+		D8A8768729A3D7DC002EDB3B /* playersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A8768629A3D7DC002EDB3B /* playersTableViewCell.swift */; };
 		F01C965B299DBD4E00843CF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01C965A299DBD4E00843CF9 /* AppDelegate.swift */; };
 		F01C965D299DBD4E00843CF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01C965C299DBD4E00843CF9 /* SceneDelegate.swift */; };
 		F01C965F299DBD4E00843CF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01C965E299DBD4E00843CF9 /* ViewController.swift */; };
@@ -39,6 +42,9 @@
 		D8A8767C29A3D2A5002EDB3B /* SplashTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashTabBarController.swift; sourceTree = "<group>"; };
 		D8A8767E29A3D2C8002EDB3B /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		D8A8768029A3D36F002EDB3B /* 2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2.json; sourceTree = "<group>"; };
+		D8A8768229A3D6F4002EDB3B /* TeamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResponse.swift; sourceTree = "<group>"; };
+		D8A8768429A3D738002EDB3B /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
+		D8A8768629A3D7DC002EDB3B /* playersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playersTableViewCell.swift; sourceTree = "<group>"; };
 		F01C9657299DBD4E00843CF9 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01C965A299DBD4E00843CF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F01C965C299DBD4E00843CF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +134,9 @@
 				D8A8768029A3D36F002EDB3B /* 2.json */,
 				D8A8767C29A3D2A5002EDB3B /* SplashTabBarController.swift */,
 				D8A8767E29A3D2C8002EDB3B /* SplashViewController.swift */,
+				D8A8768229A3D6F4002EDB3B /* TeamResponse.swift */,
+				D8A8768429A3D738002EDB3B /* TeamDetailsViewController.swift */,
+				D8A8768629A3D7DC002EDB3B /* playersTableViewCell.swift */,
 			);
 			path = SportsApp;
 			sourceTree = "<group>";
@@ -257,17 +266,20 @@
 				F066A95B299F4D4200884F6D /* LatestResultsCollectionViewCell.swift in Sources */,
 				F066A959299F4D1500884F6D /* UpComingCollectionViewCell.swift in Sources */,
 				F066A957299F4C9E00884F6D /* MainViewController.swift in Sources */,
+				D8A8768329A3D6F4002EDB3B /* TeamResponse.swift in Sources */,
 				F066A955299F2B9400884F6D /* SportsContinue.swift in Sources */,
 				F08980D729A0768C005E4A8F /* MainViewContinue.swift in Sources */,
 				F01C965F299DBD4E00843CF9 /* ViewController.swift in Sources */,
 				F01C965B299DBD4E00843CF9 /* AppDelegate.swift in Sources */,
 				F0810C85299DF50F0054DCB6 /* SportsTableViewController.swift in Sources */,
 				F01C965D299DBD4E00843CF9 /* SceneDelegate.swift in Sources */,
+				D8A8768729A3D7DC002EDB3B /* playersTableViewCell.swift in Sources */,
 				D8A8767F29A3D2C8002EDB3B /* SplashViewController.swift in Sources */,
 				7B65712629A11C2800243A4F /* TableViewCell.swift in Sources */,
 				F066A95D299F4D5000884F6D /* TeamsCollectionViewCell.swift in Sources */,
 				F098D7FC29A0B7AE00794988 /* CollectionViewCell.swift in Sources */,
 				D8A8767D29A3D2A5002EDB3B /* SplashTabBarController.swift in Sources */,
+				D8A8768529A3D738002EDB3B /* TeamDetailsViewController.swift in Sources */,
 				7B7D9CE429A274E1006B416B /* DetailsResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

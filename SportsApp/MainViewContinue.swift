@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 
 extension MainViewController {
@@ -35,6 +36,31 @@ extension MainViewController {
             }
         }
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let storyBoard = self.storyboard?.instantiateViewController(withIdentifier: "TeamDetailsViewController") as! TeamDetailsViewController
+        
+        let team = dataDetails?.result[indexPath.row]
+        let homeTeamImg = team?.home_team_logo ?? ""
+        storyBoard.teeamImg = String(homeTeamImg)
+        let homeTeamKey = team?.home_team_key ?? 0
+        storyBoard.teamKey = String(homeTeamKey)
+        
+        switch sportType {
+        case "football":
+            storyBoard.sportType = "football"
+        case "basketball":
+            storyBoard.sportType = "basketball"
+        case "cricket":
+            storyBoard.sportType = "cricket"
+        case "tennis":
+            storyBoard.sportType = "tennis"
+        default:
+            break
+        }
+            self.navigationController?.pushViewController(storyBoard, animated: true)
+    }
+
     
 }
 

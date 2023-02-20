@@ -27,7 +27,8 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        
+        teamsCell.dataSource = self
+        teamsCell.delegate = self
         // to know where i come from
         
         switch index {
@@ -230,10 +231,6 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
         }
         return CGSize(width: UIScreen.main.bounds.width/1.5, height: UIScreen.main.bounds.height/5)
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
-    }
-    
 }
+
 
