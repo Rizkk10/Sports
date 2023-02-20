@@ -7,5 +7,6 @@ target 'SportsApp' do
 
 pod 'Kingfisher'
 pod 'ReachabilitySwift'
+pod 'lottie-ios'
 
 end

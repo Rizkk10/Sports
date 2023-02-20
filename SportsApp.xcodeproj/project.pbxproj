@@ -10,6 +10,9 @@
 		5EEEDA9FA6D21AF8B016874F /* Pods_SportsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71E615BABBD61C153B0079B0 /* Pods_SportsApp.framework */; };
 		7B65712629A11C2800243A4F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65712529A11C2800243A4F /* TableViewCell.swift */; };
 		7B7D9CE429A274E1006B416B /* DetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D9CE329A274E1006B416B /* DetailsResponse.swift */; };
+		D8A8767D29A3D2A5002EDB3B /* SplashTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A8767C29A3D2A5002EDB3B /* SplashTabBarController.swift */; };
+		D8A8767F29A3D2C8002EDB3B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A8767E29A3D2C8002EDB3B /* SplashViewController.swift */; };
+		D8A8768129A3D36F002EDB3B /* 2.json in Resources */ = {isa = PBXBuildFile; fileRef = D8A8768029A3D36F002EDB3B /* 2.json */; };
 		F01C965B299DBD4E00843CF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01C965A299DBD4E00843CF9 /* AppDelegate.swift */; };
 		F01C965D299DBD4E00843CF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01C965C299DBD4E00843CF9 /* SceneDelegate.swift */; };
 		F01C965F299DBD4E00843CF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01C965E299DBD4E00843CF9 /* ViewController.swift */; };
@@ -33,6 +36,9 @@
 		75ED4FAB9A77A89AA6B4D6C6 /* Pods-SportsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsApp.release.xcconfig"; path = "Target Support Files/Pods-SportsApp/Pods-SportsApp.release.xcconfig"; sourceTree = "<group>"; };
 		7B65712529A11C2800243A4F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7B7D9CE329A274E1006B416B /* DetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsResponse.swift; sourceTree = "<group>"; };
+		D8A8767C29A3D2A5002EDB3B /* SplashTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashTabBarController.swift; sourceTree = "<group>"; };
+		D8A8767E29A3D2C8002EDB3B /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		D8A8768029A3D36F002EDB3B /* 2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2.json; sourceTree = "<group>"; };
 		F01C9657299DBD4E00843CF9 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01C965A299DBD4E00843CF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F01C965C299DBD4E00843CF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +125,9 @@
 				F066A95A299F4D4200884F6D /* LatestResultsCollectionViewCell.swift */,
 				F066A95C299F4D5000884F6D /* TeamsCollectionViewCell.swift */,
 				7B7D9CE329A274E1006B416B /* DetailsResponse.swift */,
+				D8A8768029A3D36F002EDB3B /* 2.json */,
+				D8A8767C29A3D2A5002EDB3B /* SplashTabBarController.swift */,
+				D8A8767E29A3D2C8002EDB3B /* SplashViewController.swift */,
 			);
 			path = SportsApp;
 			sourceTree = "<group>";
@@ -189,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A8768129A3D36F002EDB3B /* 2.json in Resources */,
 				F01C9667299DBD5000843CF9 /* LaunchScreen.storyboard in Resources */,
 				F098D7FA29A0B78000794988 /* Assets.xcassets in Resources */,
 				F01C9662299DBD4E00843CF9 /* Main.storyboard in Resources */,
@@ -253,9 +263,11 @@
 				F01C965B299DBD4E00843CF9 /* AppDelegate.swift in Sources */,
 				F0810C85299DF50F0054DCB6 /* SportsTableViewController.swift in Sources */,
 				F01C965D299DBD4E00843CF9 /* SceneDelegate.swift in Sources */,
+				D8A8767F29A3D2C8002EDB3B /* SplashViewController.swift in Sources */,
 				7B65712629A11C2800243A4F /* TableViewCell.swift in Sources */,
 				F066A95D299F4D5000884F6D /* TeamsCollectionViewCell.swift in Sources */,
 				F098D7FC29A0B7AE00794988 /* CollectionViewCell.swift in Sources */,
+				D8A8767D29A3D2A5002EDB3B /* SplashTabBarController.swift in Sources */,
 				7B7D9CE429A274E1006B416B /* DetailsResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
