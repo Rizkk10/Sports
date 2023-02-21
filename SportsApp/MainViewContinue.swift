@@ -37,7 +37,7 @@ extension MainViewController {
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if(collectionView == teamsCell){
+       // if(collectionView == teamsCell){
             let storyBoard = self.storyboard?.instantiateViewController(withIdentifier: "TeamDetailsViewController") as! TeamDetailsViewController
             
             let team = dataDetails?.result[indexPath.row]
@@ -46,20 +46,24 @@ extension MainViewController {
             let homeTeamKey = team?.home_team_key ?? 0
             storyBoard.teamKey = String(homeTeamKey)
             
-            switch sportType {
-            case "football":
+            switch index {
+            case 0 :
                 storyBoard.sportType = "football"
-            case "basketball":
+                storyBoard.teamIndex = 0
+            case 1 :
                 storyBoard.sportType = "basketball"
-            case "cricket":
+                storyBoard.teamIndex = 1
+            case 2 :
                 storyBoard.sportType = "cricket"
-            case "tennis":
+                storyBoard.teamIndex = 2
+            case 3 :
                 storyBoard.sportType = "tennis"
+                storyBoard.teamIndex = 3
             default:
                 break
             }
             self.navigationController?.pushViewController(storyBoard, animated: true)
-        }
+        //}
     }
 
     

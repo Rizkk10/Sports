@@ -18,7 +18,7 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
     
     @IBOutlet weak var favButton: UIButton!
     
-    
+    var teamIndex = 0
     var sportType = ""
     var teamKey = ""
     var teeamImg = ""
@@ -86,28 +86,81 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
 //MARK: - fetch the data for teams
 
 extension TeamDetailsViewController{
-    func fetchData(compilation: @escaping (TeamResponse?) -> Void)
-    {
-
-        let baseURL = "https://apiv2.allsportsapi.com"
-        let apiKey = "ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
-        let metParam = "Teams&teamId=\(teamKey)"
-        //let urlString = "\(baseURL)/\(sportType)/?met=\(metParam)&APIkey=\(apiKey)"
-        let urlString = "\(baseURL)/football/?met=\(metParam)&APIkey=\(apiKey)"
+    func fetchData(compilation: @escaping (TeamResponse?) -> Void){
         
-        AF.request(urlString).response
-        { response in
-            if let data = response.data {
-                do{
-                    let result = try JSONDecoder().decode(TeamResponse.self, from: data)
-                    compilation(result)
-                }
-                catch{
+        let footUrl =  "https://apiv2.allsportsapi.com/football/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
+        let basketUrl =  "https://apiv2.allsportsapi.com/basketball/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
+        let cricketUrl =  "https://apiv2.allsportsapi.com/cricket/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
+        let tennisUrl =  "https://apiv2.allsportsapi.com/tennis/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
+        
+        //        let baseURL = "https://apiv2.allsportsapi.com"
+        //        let apiKey = "ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
+        //        let metParam = "Teams&teamId=\(teamKey)"
+        //        //let urlString = "\(baseURL)/\(sportType)/?met=\(metParam)&APIkey=\(apiKey)"
+        //        let urlString = "\(baseURL)/football/?met=\(metParam)&APIkey=\(apiKey)"
+        switch teamIndex {
+        case 0 :
+            AF.request(footUrl).response
+            { response in
+                if let data = response.data {
+                    do{
+                        let result = try JSONDecoder().decode(TeamResponse.self, from: data)
+                        compilation(result)
+                    }
+                    catch{
+                        compilation(nil)
+                    }
+                } else {
                     compilation(nil)
                 }
-            } else {
-                compilation(nil)
             }
+        case 1 :
+            AF.request(basketUrl).response
+            { response in
+                if let data = response.data {
+                    do{
+                        let result = try JSONDecoder().decode(TeamResponse.self, from: data)
+                        compilation(result)
+                    }
+                    catch{
+                        compilation(nil)
+                    }
+                } else {
+                    compilation(nil)
+                }
+            }
+        case 2 :
+            AF.request(cricketUrl).response
+            { response in
+                if let data = response.data {
+                    do{
+                        let result = try JSONDecoder().decode(TeamResponse.self, from: data)
+                        compilation(result)
+                    }
+                    catch{
+                        compilation(nil)
+                    }
+                } else {
+                    compilation(nil)
+                }
+            }
+        case 3:
+            AF.request(tennisUrl).response
+            { response in
+                if let data = response.data {
+                    do{
+                        let result = try JSONDecoder().decode(TeamResponse.self, from: data)
+                        compilation(result)
+                    }
+                    catch{
+                        compilation(nil)
+                    }
+                } else {
+                    compilation(nil)
+                }
+            }
+        default:
+            break
         }
     }
 }
@@ -119,11 +172,15 @@ extension TeamDetailsViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerscell", for: indexPath) as! playersTableViewCell
         
+        
+        
+        
         let player =  dataTeam?.result[0].players[indexPath.row]
         cell.playerName.text = player?.player_name
         cell.playerNumber.text = player?.player_number
         //MARK: - predicate
         let string = player?.player_image
+        
         let predicate = NSPredicate(format:"SELF ENDSWITH[c] %@", ".jpg")
         let result = predicate.evaluate(with: string)
         //        print(result) // true
