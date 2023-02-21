@@ -37,7 +37,7 @@ extension MainViewController {
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       // if(collectionView == teamsCell){
+        if(collectionView == teamsCell){
             let storyBoard = self.storyboard?.instantiateViewController(withIdentifier: "TeamDetailsViewController") as! TeamDetailsViewController
             
             let team = dataDetails?.result[indexPath.row]
@@ -63,7 +63,7 @@ extension MainViewController {
                 break
             }
             self.navigationController?.pushViewController(storyBoard, animated: true)
-        //}
+        }
     }
 
     

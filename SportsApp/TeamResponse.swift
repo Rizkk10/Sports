@@ -8,7 +8,6 @@
 class TeamResult:Decodable{
     var team_name:String?
     var team_logo:String?
-    var team_key:Int?
 }
 class TeamResponse:Decodable{
     var success:Int?
@@ -25,7 +24,6 @@ class coach:Decodable {
     var coach_name:String?
 }
 class TeamResultNew:Decodable{
-    var team_key:Int?
     var players: [Player]
     var coaches:[coach]
 }
