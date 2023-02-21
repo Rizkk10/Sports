@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-
+    
     //variable to response data
     @IBOutlet weak var playersTable: UITableView!
     var dataTeam : TeamResponse?
@@ -27,11 +27,13 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
     
     var favArray = [String]()
     
+    var keyFav = ""
+    var keyNotFav = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         playersTable.delegate = self
         playersTable.dataSource = self
         
@@ -44,6 +46,19 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
         fetchPlayerData {  result in
             DispatchQueue.main.async {
                 self.playerData = result
+                
+                self.keyFav = "\(self.teamKey)"
+                self.keyNotFav = "\(self.teamKey)"
+                print(self.keyFav)
+                print(self.keyNotFav)
+                if UserDefaults.standard.bool(forKey: self.keyFav){
+                    self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    print("add fav")
+                }else if UserDefaults.standard.bool(forKey: self.keyNotFav){
+                    self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                    print("not fav")
+                }
+                
                 self.playersTable.reloadData()
             }
         }
@@ -53,6 +68,20 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
                 self.teamName.text = self.dataTeam?.result[0].team_name
                 let url = URL(string: (self.dataTeam?.result[0].team_logo) ?? "football")
                 self.teamImg.kf.setImage(with: url)
+                
+                self.keyFav = "\(self.teamKey)"
+                self.keyNotFav = "\(self.teamKey)"
+                print(self.keyFav)
+                print(self.keyNotFav)
+                if UserDefaults.standard.bool(forKey: self.keyFav){
+                    self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    print("add fav")
+                }else if UserDefaults.standard.bool(forKey: self.keyNotFav){
+                    self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                    print("not fav")
+                }
+                
+                
             }
         }
         //
@@ -62,101 +91,100 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
     
     
     @IBAction func favButtonAction(_ sender: Any) {
-        var con1 = UIButton.Configuration.plain()
-        con1.buttonSize = .large
-        con1.cornerStyle = .medium
-        con1.image = UIImage(systemName: "heart.fill")
-        
-        var con2 = UIButton.Configuration.plain()
-        con2.buttonSize = .large
-        con2.cornerStyle = .medium
-        con2.image = UIImage(systemName: "heart")
-        
         //add to fav
         if (favButton.configuration?.image == UIImage(systemName: "heart")){
-            favButton.configuration = con1
+            self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             favArray.append(teamName.text!)
+            print("add to fav")
+            UserDefaults.standard.set(false, forKey: keyNotFav)
+            UserDefaults.standard.set(true, forKey: keyFav)
         }
         //remove from fav
         else if (favButton.configuration?.image == UIImage(systemName: "heart.fill")){
-            favButton.configuration = con2
+            self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            print("remove to fav")
+            UserDefaults.standard.set(true, forKey: keyNotFav)
+            UserDefaults.standard.set(false, forKey: keyFav)
+            
         }
     }
+    
+    
 }
 //MARK: - fetch the data for teams
 
 extension TeamDetailsViewController{
-        func fetchData(compilation: @escaping (TeamResponse?) -> Void){
-            let footUrl =  "https://apiv2.allsportsapi.com/football/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
-            let basketUrl =  "https://apiv2.allsportsapi.com/basketball/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
-            let cricketUrl =  "https://apiv2.allsportsapi.com/cricket/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
-            let tennisUrl =  "https://apiv2.allsportsapi.com/tennis/?met=Players&playerId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
-            
-            switch teamIndex {
-            case 0 :
-                AF.request(footUrl).response
-                { response in
-                    if let data = response.data {
-                        do{
-                            let result = try JSONDecoder().decode(TeamResponse.self, from: data)
-                            compilation(result)
-                        }
-                        catch{
-                            compilation(nil)
-                        }
-                    } else {
+    func fetchData(compilation: @escaping (TeamResponse?) -> Void){
+        let footUrl =  "https://apiv2.allsportsapi.com/football/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
+        let basketUrl =  "https://apiv2.allsportsapi.com/basketball/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
+        let cricketUrl =  "https://apiv2.allsportsapi.com/cricket/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
+        let tennisUrl =  "https://apiv2.allsportsapi.com/tennis/?met=Players&playerId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
+        
+        switch teamIndex {
+        case 0 :
+            AF.request(footUrl).response
+            { response in
+                if let data = response.data {
+                    do{
+                        let result = try JSONDecoder().decode(TeamResponse.self, from: data)
+                        compilation(result)
+                    }
+                    catch{
                         compilation(nil)
                     }
+                } else {
+                    compilation(nil)
                 }
-            case 1 :
-                AF.request(basketUrl).response
-                { response in
-                    if let data = response.data {
-                        do{
-                            let result = try JSONDecoder().decode(TeamResponse.self, from: data)
-                            compilation(result)
-                        }
-                        catch{
-                            compilation(nil)
-                        }
-                    } else {
-                        compilation(nil)
-                    }
-                }
-            case 2 :
-                AF.request(cricketUrl).response
-                { response in
-                    if let data = response.data {
-                        do{
-                            let result = try JSONDecoder().decode(TeamResponse.self, from: data)
-                            compilation(result)
-                        }
-                        catch{
-                            compilation(nil)
-                        }
-                    } else {
-                        compilation(nil)
-                    }
-                }
-            case 3:
-                AF.request(tennisUrl).response
-                { response in
-                    if let data = response.data {
-                        do{
-                            let result = try JSONDecoder().decode(TeamResponse.self, from: data)
-                            compilation(result)
-                        }
-                        catch{
-                            compilation(nil)
-                        }
-                    } else {
-                        compilation(nil)
-                    }
-                }
-            default:
-                break
             }
+        case 1 :
+            AF.request(basketUrl).response
+            { response in
+                if let data = response.data {
+                    do{
+                        let result = try JSONDecoder().decode(TeamResponse.self, from: data)
+                        compilation(result)
+                    }
+                    catch{
+                        compilation(nil)
+                    }
+                } else {
+                    compilation(nil)
+                }
+            }
+        case 2 :
+            AF.request(cricketUrl).response
+            { response in
+                if let data = response.data {
+                    do{
+                        let result = try JSONDecoder().decode(TeamResponse.self, from: data)
+                        compilation(result)
+                    }
+                    catch{
+                        compilation(nil)
+                    }
+                } else {
+                    compilation(nil)
+                }
+            }
+        case 3:
+            AF.request(tennisUrl).response
+            { response in
+                if let data = response.data {
+                    do{
+                        let result = try JSONDecoder().decode(TeamResponse.self, from: data)
+                        compilation(result)
+                    }
+                    catch{
+                        compilation(nil)
+                    }
+                } else {
+                    compilation(nil)
+                }
+            }
+        default:
+            break
         }
+    }
     
 }
 
