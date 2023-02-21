@@ -39,15 +39,22 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
         teamName.layer.borderWidth = 0.5
         teamName.layer.borderColor = UIColor.red.cgColor
         teamName.layer.backgroundColor = UIColor.cyan.cgColor
+        
+
         //fetch data
         fetchData { result in
             DispatchQueue.main.async {
                 self.dataTeam = result
-                print(self.dataTeam?.result[0].team_name ?? "dd")
+                
                 self.teamName.text = self.dataTeam?.result[0].team_name
+                //let url = URL(string: self.teeamImg)
+                //self.teamImg.kf.setImage(with: url)
+                //print(self.dataTeam?.result[0].team_name ?? "dd")
+                //self.teamName.text = self.dataTeam?.result[0].team_name
+                
                 //
-                let url = URL(string: self.teeamImg)
-                self.teamImg.kf.setImage(with: url)
+                //let url = URL(string: self.teeamImg)
+                //self.teamImg.kf.setImage(with: url)
                 //
                 self.playersTable.reloadData()
             }
@@ -73,7 +80,6 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
         if (favButton.configuration?.image == UIImage(systemName: "heart")){
             favButton.configuration = con1
             favArray.append(teamName.text!)
-            
         }
         //remove from fav
         else if (favButton.configuration?.image == UIImage(systemName: "heart.fill")){
@@ -92,12 +98,6 @@ extension TeamDetailsViewController{
         let basketUrl =  "https://apiv2.allsportsapi.com/basketball/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
         let cricketUrl =  "https://apiv2.allsportsapi.com/cricket/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
         let tennisUrl =  "https://apiv2.allsportsapi.com/tennis/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
-        
-        //        let baseURL = "https://apiv2.allsportsapi.com"
-        //        let apiKey = "ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
-        //        let metParam = "Teams&teamId=\(teamKey)"
-        //        //let urlString = "\(baseURL)/\(sportType)/?met=\(metParam)&APIkey=\(apiKey)"
-        //        let urlString = "\(baseURL)/football/?met=\(metParam)&APIkey=\(apiKey)"
         switch teamIndex {
         case 0 :
             AF.request(footUrl).response
@@ -172,15 +172,11 @@ extension TeamDetailsViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerscell", for: indexPath) as! playersTableViewCell
         
-        
-        
-        
         let player =  dataTeam?.result[0].players[indexPath.row]
         cell.playerName.text = player?.player_name
         cell.playerNumber.text = player?.player_number
         //MARK: - predicate
         let string = player?.player_image
-        
         let predicate = NSPredicate(format:"SELF ENDSWITH[c] %@", ".jpg")
         let result = predicate.evaluate(with: string)
         //        print(result) // true
@@ -190,15 +186,27 @@ extension TeamDetailsViewController {
             cell.playerImg.kf.setImage(with: url)
         }else
         {
-            switch sportType {
-            case "football":
-                cell.playerImg.image = UIImage(named: "1")
-            case "basketball":
-                cell.playerImg.image = UIImage(named: "2")
-            case "cricket":
-                cell.playerImg.image = UIImage(named: "3")
-            case "tennis":
-                cell.playerImg.image = UIImage(named: "4")
+//            switch sportType {
+//            case "football":
+//                cell.playerImg.image = UIImage(named: "1")
+//            case "basketball":
+//                cell.playerImg.image = UIImage(named: "2")
+//            case "cricket":
+//                cell.playerImg.image = UIImage(named: "3")
+//            case "tennis":
+//                cell.playerImg.image = UIImage(named: "4")
+//            default:
+//                break
+//            }
+            switch teamIndex {
+            case 0 :
+                cell.playerImg.image = UIImage(named: "football")
+            case 1 :
+                cell.playerImg.image = UIImage(named: "Basketball")
+            case 2 :
+                cell.playerImg.image = UIImage(named: "cricket")
+            case 3 :
+                cell.playerImg.image = UIImage(named: "tennis")
             default:
                 break
             }

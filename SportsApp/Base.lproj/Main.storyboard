@@ -90,7 +90,7 @@
         <!--Sports Table View Controller-->
         <scene sceneID="gs8-CH-H9l">
             <objects>
-                <tableViewController storyboardIdentifier="SportsTableViewController" id="dnh-QP-K2b" customClass="SportsTableViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SportsTableViewController" hidesBottomBarWhenPushed="YES" id="dnh-QP-K2b" customClass="SportsTableViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="KcM-WW-Ma0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,7 +137,7 @@
         <!--Main View Controller-->
         <scene sceneID="C59-sP-r6I">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="8sX-0i-nsC" customClass="MainViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" hidesBottomBarWhenPushed="YES" id="8sX-0i-nsC" customClass="MainViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n9a-Cu-k0E">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -465,6 +465,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IfM-bn-QFT">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="dnh-QP-K2b" kind="relationship" relationship="rootViewController" id="FZy-ez-4zI"/>
                     </connections>
@@ -476,7 +479,7 @@
         <!--Team Details View Controller-->
         <scene sceneID="4zF-Wk-gJ4">
             <objects>
-                <viewController storyboardIdentifier="TeamDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fjj-XS-wtT" customClass="TeamDetailsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeamDetailsViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fjj-XS-wtT" customClass="TeamDetailsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VF8-rs-6Ic">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

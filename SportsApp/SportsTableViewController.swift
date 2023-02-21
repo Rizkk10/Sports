@@ -3,7 +3,7 @@ import UIKit
 class SportsTableViewController: UITableViewController {
     
     var legTitles: [String] = []
-    var legImg: [String] = []
+    var legImg: [Any] = []
     var legCountry: [String] = []
     var data: [[String: Any]] = []
     var comeFrom : Int = 0
@@ -67,7 +67,7 @@ class SportsTableViewController: UITableViewController {
             
             //MARK: - kingfisher
             if result{
-                let url = URL(string: str)
+                let url = URL(string: str as! String)
                 cell.legImage.kf.setImage(with: url)
                 
             }else{
