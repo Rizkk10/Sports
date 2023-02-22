@@ -5,6 +5,7 @@ class SportsTableViewController: UITableViewController {
     var legTitles: [String] = []
     var legImg: [Any] = []
     var legCountry: [String] = []
+    var legKey: [Int] = []
     var data: [[String: Any]] = []
     var comeFrom : Int = 0
 
@@ -42,22 +43,7 @@ class SportsTableViewController: UITableViewController {
         cell.contentView.layer.masksToBounds = true
         
         cell.legLabel.text = legTitles[indexPath.row]
-
-//        cell.legImage.image = UIImage(named: "Basketball")
-//        var str:String?
-//        str = legImg[indexPath.row] ?? "Basketball"
-//        let predicate = NSPredicate(format:"SELF ENDSWITH[c] %@", ".jpg")
-//        let result = predicate.evaluate(with: str)
-//
-//        //MARK: - kingfisher
-//        if result{
-//            let url = URL(string: str!)
-//            cell.legImage.kf.setImage(with: url)
-//
-//        }else{
-//            cell.legImage.image = UIImage(named: "Basketball")
-//        }
-        
+       
         switch comeFrom {
             
         case 0 :
@@ -95,10 +81,13 @@ class SportsTableViewController: UITableViewController {
             
         case 0 :
             main.index = 0
+            main.legKey = legKey[indexPath.row]
         case 1:
             main.index = 1
+            main.legKey = legKey[indexPath.row]
         case 2:
             main.index = 2
+            main.legKey = legKey[indexPath.row]
         case 3:
             main.index = 3
         default:

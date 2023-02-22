@@ -19,6 +19,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
     
     
     var index : Int = 0
+    var legKey : Int = 0
     var dataDetails : DetailsResponse?
     var sportType = ""
     
@@ -34,11 +35,13 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
         switch index {
             
         case 0 :
-            fetchData(apiLink: upcomingApi.Football.rawValue) { res in
+            let footBallApi = "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=44ec41896869760bf9da8e3b2ccd2ea8bca5c24e0269d0102507eed1e78a3ae1&from=2022-02-19&to=2023-02-20&leagueId=\(legKey)"
+            fetchData(apiLink: footBallApi) { res in
                 print("Football")
             }
         case 1:
-            fetchData(apiLink: upcomingApi.Basketball.rawValue) { res in
+            let BasketBallApi = "https://apiv2.allsportsapi.com/basketball/?met=Fixtures&APIkey=44ec41896869760bf9da8e3b2ccd2ea8bca5c24e0269d0102507eed1e78a3ae1&from=2022-12-13&to=2023-02-20&leagueId=\(legKey)"
+            fetchData(apiLink: BasketBallApi) { res in
                 print("Basketball")
             }
         case 2:
