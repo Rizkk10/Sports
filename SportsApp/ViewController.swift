@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import Reachability
 
 class ViewController: UIViewController , UICollectionViewDelegate ,UICollectionViewDelegateFlowLayout , UICollectionViewDataSource {
     
     @IBOutlet weak var colView: UICollectionView!
     
     var sportsArr = [Sports]()
-    
+    var flag : Int = 0
+    let reachability = try! Reachability()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,37 @@ class ViewController: UIViewController , UICollectionViewDelegate ,UICollectionV
         sportsArr.append(Sports(sportName: "Cricket", sportPhoto: UIImage(named: "cricket")!))
         sportsArr.append(Sports(sportName: "Tennis", sportPhoto: UIImage(named: "tennis")!))
         
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
+
+    @objc func reachabilityChanged(note: Notification) {
+        let reachability = note.object as! Reachability
+
+        switch reachability.connection {
+        case .wifi:
+            print("Wifi Connection")
+        case .cellular:
+            print("Cellular Connection ")
+        case .unavailable:
+            print("No Connection")
+        case .none:
+            print("No Connection")
+        }
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        reachability.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,29 +94,30 @@ class ViewController: UIViewController , UICollectionViewDelegate ,UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let table = self.storyboard?.instantiateViewController(withIdentifier: "SportsTableViewController") as! SportsTableViewController
-       
-        switch indexPath.row {
+        
+        
+        flag = indexPath.row
+        
+        if (reachability.connection != .unavailable){
+            reachInternet()
+        }else {
             
-        case 0 :
-            table.comeFrom = indexPath.row
-           
+            let alert = UIAlertController(title: "No Internet Connection", message: "Please check your connection and try again", preferredStyle: .alert)
             
-            self.navigationController?.pushViewController(table, animated: true)
-        case 1 :
-            table.comeFrom = indexPath.row
-            self.navigationController?.pushViewController(table, animated: true)
-        case 2:
-            table.comeFrom = indexPath.row
-            self.navigationController?.pushViewController(table, animated: true)
-        case 3 :
-            table.comeFrom = indexPath.row
-            self.navigationController?.pushViewController(table, animated: true)
-        default:
-            break
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            
+            present(alert, animated: true)
+            
         }
     }
     
+    func reachInternet(){
+        let table = self.storyboard?.instantiateViewController(withIdentifier: "SportsTableViewController") as! SportsTableViewController
+        table.comeFrom = flag
+        if (reachability.connection != .unavailable){
+            self.navigationController?.pushViewController(table, animated: true)
+        }
+    }
 }
 
 
