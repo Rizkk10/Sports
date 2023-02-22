@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import CoreData
 
 class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -29,7 +30,8 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
     
     var keyFav = ""
     var keyNotFav = ""
-    
+    var isFavorite = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +55,12 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
                 print(self.keyNotFav)
                 if UserDefaults.standard.bool(forKey: self.keyFav){
                     self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    self.isFavorite = true
                     print("add fav")
                 }else if UserDefaults.standard.bool(forKey: self.keyNotFav){
                     self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                    self.isFavorite = false
+
                     print("not fav")
                 }
                 
@@ -75,9 +80,12 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
                 print(self.keyNotFav)
                 if UserDefaults.standard.bool(forKey: self.keyFav){
                     self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    self.isFavorite = true
+
                     print("add fav")
                 }else if UserDefaults.standard.bool(forKey: self.keyNotFav){
                     self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                    self.isFavorite = false
                     print("not fav")
                 }
                 
@@ -86,27 +94,41 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
         }
         //
         print(favArray)
+        
+        
+        //Ali
+        // Set initial state of the button based on whether the player name is favorited or not
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritePlayer")
+        
+        request.predicate = NSPredicate(format: "name == %@", dataTeam?.result[0].team_name ?? "")
+        
+        //Ali
     }
     
     
     
     @IBAction func favButtonAction(_ sender: Any) {
-        //add to fav
-        if (favButton.configuration?.image == UIImage(systemName: "heart")){
-            self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            favArray.append(teamName.text!)
-            print("add to fav")
-            UserDefaults.standard.set(false, forKey: keyNotFav)
-            UserDefaults.standard.set(true, forKey: keyFav)
-        }
-        //remove from fav
-        else if (favButton.configuration?.image == UIImage(systemName: "heart.fill")){
-            self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            print("remove to fav")
-            UserDefaults.standard.set(true, forKey: keyNotFav)
-            UserDefaults.standard.set(false, forKey: keyFav)
-            
-        }
+//        //add to fav
+//        if (favButton.configuration?.image == UIImage(systemName: "heart")){
+//            self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//            favArray.append(teamName.text!)
+//            print("add to fav")
+//            UserDefaults.standard.set(false, forKey: keyNotFav)
+//            UserDefaults.standard.set(true, forKey: keyFav)
+//        }
+//        //remove from fav
+//        else if (favButton.configuration?.image == UIImage(systemName: "heart.fill")){
+//            self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+//            print("remove to fav")
+//            UserDefaults.standard.set(true, forKey: keyNotFav)
+//            UserDefaults.standard.set(false, forKey: keyFav)
+//
+//        }
+        
+        favoriteButtonTapped()
+        
     }
     
     
@@ -311,4 +333,77 @@ extension TeamDetailsViewController {
             break
         }
     }
+}
+
+extension TeamDetailsViewController {
+    
+    
+    @objc func favoriteButtonTapped() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+         if (favButton.configuration?.image == UIImage(systemName: "heart.fill")){
+            self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            print("remove to fav")
+            UserDefaults.standard.set(true, forKey: keyNotFav)
+            UserDefaults.standard.set(false, forKey: keyFav)
+            
+            // Remove the player name from favorites
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritePlayer")
+            
+            
+//            if self.sportType == "tennis"
+//            {
+//                request.predicate = NSPredicate(format: "name == %@", dataTeam?.result[0].player_name ?? "")
+//            }
+//            else {
+                request.predicate = NSPredicate(format: "name == %@", dataTeam?.result[0].team_name ?? "")
+                
+//            }
+            
+    
+            request.returnsObjectsAsFaults = false
+            do {
+                let results = try context.fetch(request)
+                for result in results as! [NSManagedObject] {
+                    context.delete(result)
+                }
+                try context.save()
+                isFavorite = false
+            } catch {
+                print("Error removing from favorites: \(error)")
+            }
+            
+        } else if (favButton.configuration?.image == UIImage(systemName: "heart")){
+            self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            favArray.append(teamName.text!)
+            print("add to fav")
+            UserDefaults.standard.set(false, forKey: keyNotFav)
+            UserDefaults.standard.set(true, forKey: keyFav)
+            // Add the player name to favorites
+            let entity = NSEntityDescription.entity(forEntityName: "FavoritePlayer", in: context)!
+            let favoritePlayer = NSManagedObject(entity: entity, insertInto: context)
+            
+            
+//
+//            if self.sportType == "tennis"
+//            {
+//                favoritePlayer.setValue(dataTeam?.result[0].player_name, forKey: "name")
+//
+//            }
+//            else {
+                favoritePlayer.setValue(dataTeam?.result[0].team_name, forKey: "name")
+                
+//            }
+            
+            do {
+                try context.save()
+                isFavorite = true
+            } catch {
+                print("Error adding to favorites: \(error)")
+            }
+            
+        }
+    }
+    
 }
