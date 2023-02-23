@@ -8,7 +8,7 @@
 import UIKit
 
 class LatestResultsCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var LatestResultsLabel: UILabel!
+
     @IBOutlet weak var homeTeamImageView: UIImageView!
     @IBOutlet weak var homeTeamLabel: UILabel!
     @IBOutlet weak var awayTeamImageView: UIImageView!
