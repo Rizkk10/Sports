@@ -43,29 +43,41 @@ extension MainViewController {
             let team = dataDetails?.result[indexPath.row]
             let homeTeamImg = team?.home_team_logo ?? ""
             storyBoard.teeamImg = String(homeTeamImg)
-            let homeTeamKey = team?.home_team_key ?? 0
-            storyBoard.teamKey = String(homeTeamKey)
+            if index == 3 {
+                let homeTeamKey = team?.first_player_key ?? 0
+                storyBoard.teamKey = String(homeTeamKey)
+            }
+            else {
+                let homeTeamKey = team?.home_team_key ?? 0
+                storyBoard.teamKey = String(homeTeamKey)
+            }
+            
+            
             
             switch index {
             case 0 :
                 storyBoard.sportType = "football"
                 storyBoard.teamIndex = 0
+                
             case 1 :
                 storyBoard.sportType = "basketball"
                 storyBoard.teamIndex = 1
+                
             case 2 :
                 storyBoard.sportType = "cricket"
                 storyBoard.teamIndex = 2
+                
             case 3 :
                 storyBoard.sportType = "tennis"
                 storyBoard.teamIndex = 3
+                
             default:
                 break
             }
             self.navigationController?.pushViewController(storyBoard, animated: true)
         }
     }
-
+    
     
 }
 

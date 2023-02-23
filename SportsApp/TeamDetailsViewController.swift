@@ -70,10 +70,37 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
         fetchData { result in
             DispatchQueue.main.async {
                 self.dataTeam = result
-                self.teamName.text = self.dataTeam?.result[0].team_name
-                let url = URL(string: (self.dataTeam?.result[0].team_logo) ?? "football")
-                self.teamImg.kf.setImage(with: url)
                 
+                
+                
+                
+                
+                if self.teamIndex == 3
+                {
+                    self.teamName.text = self.dataTeam?.result[0].player_name
+                    
+                    
+                    let url = URL(string: (self.dataTeam?.result[0].player_logo) ?? "https://i.ibb.co/G9YtDLp/tennis.jpg")
+                    self.teamImg.kf.setImage(with: url)
+                    
+                    
+                    
+                    print(self.dataTeam?.result[0].player_name ?? "dd")
+                }
+                else {
+                    self.teamName.text = self.dataTeam?.result[0].team_name
+                    
+                    let url = URL(string: (self.dataTeam?.result[0].team_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+                    self.teamImg.kf.setImage(with: url)
+                    
+                    print(self.dataTeam?.result[0].team_name ?? "dd")
+                }
+                
+                
+                
+                
+//                let url = URL(string: (self.dataTeam?.result[0].team_logo) ?? "football")
+//                self.teamImg.kf.setImage(with: url)
                 self.keyFav = "\(self.teamKey)"
                 self.keyNotFav = "\(self.teamKey)"
                 print(self.keyFav)
@@ -266,7 +293,12 @@ extension TeamDetailsViewController {
         let footUrl =  "https://apiv2.allsportsapi.com/football/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
         let basketUrl =  "https://apiv2.allsportsapi.com/basketball/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
         let cricketUrl =  "https://apiv2.allsportsapi.com/cricket/?met=Teams&teamId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
-        let tennisUrl =  "https://apiv2.allsportsapi.com/tennis/?met=Players&playerId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
+        let tennisUrl =
+        
+        "https://apiv2.allsportsapi.com/tennis/?met=Players&playerId=\(teamKey)&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c"
+        
+        
+    https://apiv2.allsportsapi.com/tennis/?met=Players&playerId=785&APIkey=ed1c5c7c52b5fe5d2d9330d77e933c2718b6f8399bc960f0d2be45c42f016d9c
         
         switch teamIndex {
         case 0 :

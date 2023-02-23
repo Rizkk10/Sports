@@ -8,6 +8,8 @@
 class TeamResult:Decodable{
     var team_name:String?
     var team_logo:String?
+    var player_name:String?//tennis
+    var player_logo:String?//tennis
 }
 class TeamResponse:Decodable{
     var success:Int?

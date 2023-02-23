@@ -97,7 +97,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
                 
                 //tennis
             case 3:
-                let url = URL(string: (team?.event_first_player_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+                let url = URL(string: (team?.event_first_player_logo) ?? "https://i.ibb.co/G9YtDLp/tennis.jpg")
                 cell.teamImage.kf.setImage(with: url)
                 
             default:
@@ -135,9 +135,9 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             case 3 :
                 //tennis
                 cell.configureCell(homeTitle: (team?.event_first_player)!, awayTitle: (team?.event_second_player)!, eventDate: (team?.event_date)! , homeLogo:"" , awaylogo: "", eventTime: (team?.event_time)!)
-                let urlHome = URL(string: (team?.event_first_player_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+                let urlHome = URL(string: (team?.event_first_player_logo) ?? "https://i.ibb.co/G9YtDLp/tennis.jpg")
                 cell.homeTeamImageView.kf.setImage(with: urlHome)
-                let urlAway = URL(string: (team?.event_second_player_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+                let urlAway = URL(string: (team?.event_second_player_logo) ?? "https://i.ibb.co/G9YtDLp/tennis.jpg")
                 cell.awayTeamImageView.kf.setImage(with: urlAway)
                 
                 
@@ -201,9 +201,9 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             cell.homeTeamLabel.text = team?.event_first_player
             cell.awayTeamLabel.text = team?.event_second_player
             
-            let urlHome = URL(string: (team?.event_first_player_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+            let urlHome = URL(string: (team?.event_first_player_logo) ?? "https://i.ibb.co/G9YtDLp/tennis.jpg")
             cell.homeTeamImageView.kf.setImage(with: urlHome)
-            let urlAway = URL(string: (team?.event_second_player_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
+            let urlAway = URL(string: (team?.event_second_player_logo) ?? "https://i.ibb.co/G9YtDLp/tennis.jpg")
             cell.awayTeamImageView.kf.setImage(with: urlAway)
             
             cell.eventDateLabel.text = team?.event_date
