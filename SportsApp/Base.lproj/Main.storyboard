@@ -103,19 +103,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="basketball" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="H89-e1-c90">
-                                            <rect key="frame" x="20" y="13" width="76" height="62"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="H89-e1-c90">
+                                            <rect key="frame" x="25" y="17" width="93" height="63"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUa-xs-JkW">
-                                            <rect key="frame" x="104" y="16" width="269" height="59"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUa-xs-JkW">
+                                            <rect key="frame" x="128" y="22.333333333333332" width="250" height="51.666666666666671"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.9082512133049242" green="0.9082512133049242" blue="0.9082512133049242" alpha="0.80726886269272558" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="bUa-xs-JkW" firstAttribute="centerY" secondItem="H89-e1-c90" secondAttribute="centerY" id="5pq-be-bzX"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="H89-e1-c90" secondAttribute="bottom" constant="5" id="JqE-aQ-4ke"/>
+                                        <constraint firstItem="H89-e1-c90" firstAttribute="leading" secondItem="GYM-ht-oIM" secondAttribute="leadingMargin" constant="5" id="OLt-zn-5Py"/>
+                                        <constraint firstItem="H89-e1-c90" firstAttribute="top" secondItem="GYM-ht-oIM" secondAttribute="topMargin" constant="5" id="bDf-z5-Tst"/>
+                                        <constraint firstItem="bUa-xs-JkW" firstAttribute="width" secondItem="H89-e1-c90" secondAttribute="width" multiplier="2.68817" id="ckI-VC-0eT"/>
+                                        <constraint firstItem="bUa-xs-JkW" firstAttribute="trailing" secondItem="GYM-ht-oIM" secondAttribute="trailingMargin" constant="5" id="dg4-lq-wXO"/>
+                                        <constraint firstItem="H89-e1-c90" firstAttribute="height" secondItem="GYM-ht-oIM" secondAttribute="height" multiplier="0.714815" id="i9Z-0F-t0F"/>
+                                        <constraint firstItem="H89-e1-c90" firstAttribute="width" secondItem="GYM-ht-oIM" secondAttribute="width" multiplier="0.236641" id="pUG-G8-eoq"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bUa-xs-JkW" secondAttribute="bottom" constant="5" id="qaS-5E-gWq"/>
+                                        <constraint firstItem="bUa-xs-JkW" firstAttribute="leading" secondItem="H89-e1-c90" secondAttribute="trailing" constant="10" id="tX5-WZ-mvw"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="legImage" destination="H89-e1-c90" id="j5H-y9-Z5e"/>
