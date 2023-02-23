@@ -38,10 +38,10 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
         playersTable.delegate = self
         playersTable.dataSource = self
         
-        teamName.layer.cornerRadius = 20.0
-        teamName.layer.borderWidth = 0.5
-        teamName.layer.borderColor = UIColor.red.cgColor
-        teamName.layer.backgroundColor = UIColor.cyan.cgColor
+//        teamName.layer.cornerRadius = 20.0
+//        teamName.layer.borderWidth = 0.5
+//        teamName.layer.borderColor = UIColor.red.cgColor
+//        teamName.layer.backgroundColor = UIColor.cyan.cgColor
         
         //fetch data
         fetchPlayerData {  result in
