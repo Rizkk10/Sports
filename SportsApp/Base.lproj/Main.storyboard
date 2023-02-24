@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -515,11 +516,11 @@
             </objects>
             <point key="canvasLocation" x="-1102" y="-68"/>
         </scene>
-        <!--Item-->
+        <!--Sports-->
         <scene sceneID="WOl-Sr-fhh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jZm-Su-bka" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LJT-wt-1ct"/>
+                    <tabBarItem key="tabBarItem" title="Sports" image="sportscourt" catalog="system" id="LJT-wt-1ct"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pyk-Cx-uRr">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -555,7 +556,7 @@
             </objects>
             <point key="canvasLocation" x="1365.6488549618321" y="-411.26760563380282"/>
         </scene>
-        <!--Item-->
+        <!--Favorite-->
         <scene sceneID="bsT-qw-Bny">
             <objects>
                 <viewController storyboardIdentifier="FavoriteTeam" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aBM-09-09G" customClass="FavoriteTeam" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -627,7 +628,9 @@
                             <constraint firstItem="5nX-rh-SLg" firstAttribute="top" secondItem="F1r-pT-GWD" secondAttribute="top" id="sFh-k8-nAO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="psj-hf-uAC"/>
+                    <tabBarItem key="tabBarItem" title="Favorite" id="psj-hf-uAC">
+                        <imageReference key="image" image="heart.circle" catalog="system" symbolScale="large" variableValue="1"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="TableFavoriteTeam" destination="5nX-rh-SLg" id="NpQ-B4-bqp"/>
                     </connections>
@@ -766,6 +769,8 @@
     <resources>
         <image name="basketball" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.circle" catalog="system" width="128" height="123"/>
+        <image name="sportscourt" catalog="system" width="128" height="83"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
