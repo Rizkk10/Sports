@@ -38,10 +38,10 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
         playersTable.delegate = self
         playersTable.dataSource = self
         
-//        teamName.layer.cornerRadius = 20.0
-//        teamName.layer.borderWidth = 0.5
-//        teamName.layer.borderColor = UIColor.red.cgColor
-//        teamName.layer.backgroundColor = UIColor.cyan.cgColor
+        teamName.layer.cornerRadius = 20.0
+        teamName.layer.borderWidth = 0.5
+        teamName.layer.borderColor = UIColor.red.cgColor
+        teamName.layer.backgroundColor = UIColor.cyan.cgColor
         
         //fetch data
         fetchPlayerData {  result in
@@ -262,9 +262,9 @@ extension TeamDetailsViewController {
             case 0 :
                 cell.playerImg.image = UIImage(named: "football")
             case 1 :
-                cell.playerImg.image = UIImage(named: "Basketball")
+                cell.playerImg.image = UIImage(named: "NewBasketball")
             case 2 :
-                cell.playerImg.image = UIImage(named: "cricket")
+                cell.playerImg.image = UIImage(named: "NewCricket")
             case 3 :
                 cell.playerImg.image = UIImage(named: "tennis")
             default:

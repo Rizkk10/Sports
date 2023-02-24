@@ -429,8 +429,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teams" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDq-V9-xJx">
-                                <rect key="frame" x="163" y="636.66666666666663" width="67" height="26.333333333333371"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Teams" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDq-V9-xJx">
+                                <rect key="frame" x="163" y="637" width="80" height="26"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -453,7 +453,6 @@
                             <constraint firstItem="Y2w-dt-yt6" firstAttribute="leading" secondItem="YUz-EZ-ylx" secondAttribute="leading" id="GTY-J0-COs"/>
                             <constraint firstItem="IhS-dH-huI" firstAttribute="trailing" secondItem="YUz-EZ-ylx" secondAttribute="trailing" id="Ius-X7-UE4"/>
                             <constraint firstItem="DSr-sv-bKG" firstAttribute="top" secondItem="Y2w-dt-yt6" secondAttribute="bottom" constant="10.67" id="JEr-Dn-dPP"/>
-                            <constraint firstItem="YUz-EZ-ylx" firstAttribute="trailing" secondItem="mDq-V9-xJx" secondAttribute="trailing" constant="163" id="Sgi-BP-8bv"/>
                             <constraint firstItem="Y2w-dt-yt6" firstAttribute="trailing" secondItem="YUz-EZ-ylx" secondAttribute="trailing" id="SlS-Mz-PWq"/>
                             <constraint firstItem="8iO-Ni-isJ" firstAttribute="height" secondItem="n9a-Cu-k0E" secondAttribute="height" multiplier="0.0309077" id="SyY-cL-Gc9"/>
                             <constraint firstItem="Y2w-dt-yt6" firstAttribute="height" secondItem="n9a-Cu-k0E" secondAttribute="height" multiplier="0.242958" id="T2U-V6-BRz"/>
@@ -505,7 +504,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tbv-gs-ZhZ">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="jZm-Su-bka" kind="relationship" relationship="viewControllers" id="xsq-Lv-PNp"/>

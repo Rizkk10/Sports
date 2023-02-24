@@ -23,10 +23,10 @@ class ViewController: UIViewController , UICollectionViewDelegate ,UICollectionV
         colView.dataSource = self
         
         sportsArr.append(Sports(sportName: "FootBall", sportPhoto: UIImage(named: "football")!))
-        sportsArr.append(Sports(sportName: "BasketBall", sportPhoto: UIImage(named: "Basketball")!))
-        sportsArr.append(Sports(sportName: "Cricket", sportPhoto: UIImage(named: "cricket")!))
+        sportsArr.append(Sports(sportName: "BasketBall", sportPhoto: UIImage(named: "NewBasketball")!))
+        sportsArr.append(Sports(sportName: "Cricket", sportPhoto: UIImage(named: "NewCricket")!))
         sportsArr.append(Sports(sportName: "Tennis", sportPhoto: UIImage(named: "tennis")!))
-        
+
     }
     
     

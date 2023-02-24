@@ -57,10 +57,14 @@ class SportsTableViewController: UITableViewController {
                 cell.legImage.kf.setImage(with: url)
                 
             }else{
-                cell.legImage.image = UIImage(named: "Basketball")
+                cell.legImage.image = UIImage(named: "football")
             }
-        case 1, 2, 3:
-            cell.legImage.image = UIImage(named: "Basketball")
+        case 1 :
+            cell.legImage.image = UIImage(named: "NewBasketball")
+        case 2 :
+            cell.legImage.image = UIImage(named: "NewCricket")
+        case 3 :
+            cell.legImage.image = UIImage(named: "tennis")
         default:
             break
         }
