@@ -104,47 +104,56 @@ extension FavoriteTeam: UITableViewDataSource, UITableViewDelegate {
             let playerName = favoritePlayer.value(forKey: "name") as? String
             let playerKey = favoritePlayer.value(forKey: "key") as? String
             
+            // Create an alert controller
+            let alert = UIAlertController(title: "Remove Team", message: "Are you sure you want to remove \(playerName ?? "") from favorites?", preferredStyle: .alert)
             
-            // Remove the player name from favorites
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritePlayer")
-            
-            
-            //            if self.sportType == "tennis"
-            //            {
-            //                request.predicate = NSPredicate(format: "name == %@", dataTeam?.result[0].player_name ?? "")
-            //            }
-            //            else {
-            request.predicate = NSPredicate(format: "name == %@", playerName ?? "")
-            
-            //            }
-            var favKey = "fav\(playerKey!)"
-            
-            print(favKey)
-            request.returnsObjectsAsFaults = false
-            do {
-                let results = try context.fetch(request)
-                for result in results as! [NSManagedObject] {
-                    context.delete(result)
+            // Add actions to the alert controller
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { _ in
+                
+                // Remove the player name from favorites
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritePlayer")
+                
+                
+                //            if self.sportType == "tennis"
+                //            {
+                //                request.predicate = NSPredicate(format: "name == %@", dataTeam?.result[0].player_name ?? "")
+                //            }
+                //            else {
+                request.predicate = NSPredicate(format: "name == %@", playerName ?? "")
+                
+                //            }
+                var favKey = "fav\(playerKey!)"
+                
+                print(favKey)
+                request.returnsObjectsAsFaults = false
+                do {
+                    let results = try self.context.fetch(request)
+                    for result in results as! [NSManagedObject] {
+                        self.context.delete(result)
+                    }
+                    try self.context.save()
+                    //                isFavorite = false
+                } catch {
+                    print("Error removing from favorites: \(error)")
                 }
-                try context.save()
-                //                isFavorite = false
-            } catch {
-                print("Error removing from favorites: \(error)")
+                //Ali
+                
+                UserDefaults.standard.set(false, forKey: favKey)
+                self.favoritePlayers.remove(at: indexPath.row)
+                // Delete the row from the table view with an animation
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                self.TableFavoriteTeam.reloadData()
+            }))
+                                         
+                                          // Present the alert controller
+                                          self.present(alert, animated: true, completion: nil)
+                                          }}
+                                          
+                                          
+                                          //Delegate
+                                          func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+                return 100
             }
-            //Ali
-            
-            UserDefaults.standard.set(false, forKey: favKey)
-            favoritePlayers.remove(at: indexPath.row)
-            // Delete the row from the table view with an animation
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        self.TableFavoriteTeam.reloadData()
-    }
-    
-    
-    //Delegate
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-}
+                                          
+                                          }

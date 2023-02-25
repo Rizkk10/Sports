@@ -686,7 +686,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.51653303029999997" green="0.70265835759999995" blue="0.58170483210000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" systemColor="systemGray5Color"/>
                                             <constraints>
                                                 <constraint firstItem="m0P-ow-jjH" firstAttribute="height" secondItem="akM-AK-c94" secondAttribute="height" multiplier="0.80531" id="4cp-eg-2XU"/>
                                                 <constraint firstItem="drj-iV-Cq8" firstAttribute="bottom" secondItem="m0P-ow-jjH" secondAttribute="bottom" id="9Cu-CS-ce7"/>
@@ -733,7 +733,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kGt-fh-R1E"/>
-                        <color key="backgroundColor" red="0.46649229759999999" green="0.63529411759999999" blue="0.52211833500000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="kGt-fh-R1E" firstAttribute="trailing" secondItem="bT0-3k-y4g" secondAttribute="trailing" constant="15" id="0qj-si-YH8"/>
                             <constraint firstItem="c4C-MJ-W9l" firstAttribute="centerX" secondItem="Kls-mq-Gwk" secondAttribute="centerX" id="3Xe-Da-UiR"/>
@@ -775,6 +775,9 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
