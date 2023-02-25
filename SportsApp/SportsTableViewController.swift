@@ -9,8 +9,15 @@ class SportsTableViewController: UITableViewController {
     var data: [[String: Any]] = []
     var comeFrom : Int = 0
 
+    var activityIndicator = UIActivityIndicatorView(style: .large)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
         
         switch comeFrom {
             

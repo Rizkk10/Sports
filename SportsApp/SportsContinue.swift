@@ -33,6 +33,7 @@ extension SportsTableViewController {
                     
                     self.legImg = self.legImg.map{$0 is NSNull ? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png" : $0}
                     DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
                         self.tableView.reloadData()
                     }
                 }
@@ -66,6 +67,7 @@ extension SportsTableViewController {
                     self.legImg = result.compactMap { $0["league_logo"] as? String }
                     self.legKey = result.compactMap { $0["league_key"] as? Int }
                     DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
                         self.tableView.reloadData()
                     }
                 }
