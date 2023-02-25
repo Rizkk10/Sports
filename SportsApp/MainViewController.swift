@@ -10,6 +10,9 @@ import Alamofire
 
 class MainViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
     
+    
+    @IBOutlet weak var TeamsLabel: UILabel!
+    
     @IBOutlet weak var teamsCell: UICollectionView!
     
     @IBOutlet weak var upComingCell: UICollectionView!
@@ -35,7 +38,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
         switch index {
             
         case 0 :
-            let footBallApi = "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=44ec41896869760bf9da8e3b2ccd2ea8bca5c24e0269d0102507eed1e78a3ae1&from=2022-02-19&to=2023-02-20&leagueId=\(legKey)"
+            let footBallApi = "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=44ec41896869760bf9da8e3b2ccd2ea8bca5c24e0269d0102507eed1e78a3ae1&from=2022-02-19&to=2023-02-28&leagueId=\(legKey)"
             fetchData(apiLink: footBallApi) { res in
                 print("Football")
             }
@@ -79,6 +82,8 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
         // cofiguration cell for Teams
         if collectionView == teamsCell {
             
+            
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teams", for: indexPath) as! TeamsCollectionViewCell
             //            cell.backgroundColor = UIColor.red
             
@@ -97,6 +102,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
                 
                 //tennis
             case 3:
+                TeamsLabel.text = "Players"
                 let url = URL(string: (team?.event_first_player_logo) ?? "https://i.ibb.co/G9YtDLp/tennis.jpg")
                 cell.teamImage.kf.setImage(with: url)
                 
@@ -151,7 +157,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
         
         // cofiguration  cell for Latest Results
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "latestResults", for: indexPath) as! LatestResultsCollectionViewCell
-        let team = dataDetails?.result[indexPath.row]
+        let team = dataDetails?.result[indexPath.row + 20 ]
         
         switch index {
             // FootBall
