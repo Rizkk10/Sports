@@ -122,7 +122,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             switch index {
             case 0 :
                 // FootBall
-                cell.configureCell(homeTitle: (team?.event_home_team)! , awayTitle: (team?.event_away_team)!, eventDate: (team?.event_date)! , homeLogo: (team?.home_team_logo)!, awaylogo: (team?.away_team_logo)!, eventTime:(team?.event_time)!)
+                cell.configureCell(homeTitle: (team?.event_away_team)! , awayTitle: (team?.event_home_team)!, eventDate: (team?.event_date)! , homeLogo: (team?.home_team_logo)!, awaylogo: (team?.away_team_logo)!, eventTime:(team?.event_time)!)
             case 1 :
                 // BasketBall
                 let urlHome = URL(string: (team?.home_team_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
@@ -162,8 +162,8 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
         switch index {
             // FootBall
         case 0:
-            cell.homeTeamLabel.text = team?.event_home_team
-            cell.awayTeamLabel.text = team?.event_away_team
+            cell.homeTeamLabel.text = team?.event_away_team
+            cell.awayTeamLabel.text = team?.event_home_team
             
             let urlHome = URL(string: (team?.home_team_logo) ?? "https://goplexe.org/wp-content/uploads/2020/04/placeholder-1.png")
             cell.homeTeamImageView.kf.setImage(with: urlHome)
