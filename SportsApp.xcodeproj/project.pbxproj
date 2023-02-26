@@ -138,8 +138,8 @@
 		F05BC45E29AC039500426178 /* SportsTypes */ = {
 			isa = PBXGroup;
 			children = (
-				F098D7FB29A0B7AE00794988 /* CollectionViewCell.swift */,
 				F01C965E299DBD4E00843CF9 /* ViewController.swift */,
+				F098D7FB29A0B7AE00794988 /* CollectionViewCell.swift */,
 			);
 			path = SportsTypes;
 			sourceTree = "<group>";

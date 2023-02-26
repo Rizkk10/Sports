@@ -22,12 +22,16 @@ class SportsTableViewController: UITableViewController {
         switch comeFrom {
             
         case 0 :
+            self.title = "Football leagues"
             fetchData(apiLink: sportsApi.Football.rawValue)
         case 1:
+            self.title = "Basketball leagues"
             fetchData(apiLink: sportsApi.Basketball.rawValue)
         case 2:
+            self.title = "Cricket leagues"
             fetchCricketData()
         case 3:
+            self.title = "Tennis leagues"
             fetchData(apiLink: sportsApi.Tennis.rawValue)
         default:
             break

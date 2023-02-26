@@ -21,7 +21,7 @@ class ViewController: UIViewController , UICollectionViewDelegate ,UICollectionV
         
         colView.delegate = self
         colView.dataSource = self
-        
+        self.title = "Sports"
         sportsArr.append(Sports(sportName: "FootBall", sportPhoto: UIImage(named: "football")!))
         sportsArr.append(Sports(sportName: "BasketBall", sportPhoto: UIImage(named: "NewBasketball")!))
         sportsArr.append(Sports(sportName: "Cricket", sportPhoto: UIImage(named: "NewCricket")!))

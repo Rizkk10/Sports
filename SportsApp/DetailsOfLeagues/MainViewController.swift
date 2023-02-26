@@ -88,6 +88,7 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             //            cell.backgroundColor = UIColor.red
             
             let team = dataDetails?.result[indexPath.row]
+            
             switch index {
                 
                 // FootBall
@@ -118,7 +119,8 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upComing", for: indexPath) as! UpComingCollectionViewCell
             let team = dataDetails?.result[indexPath.row]
-            
+            cell.layer.borderColor = UIColor.darkGray.cgColor
+            cell.layer.borderWidth = 0.5
             switch index {
             case 0 :
                 // FootBall
@@ -158,6 +160,9 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
         // cofiguration  cell for Latest Results
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "latestResults", for: indexPath) as! LatestResultsCollectionViewCell
         let team = dataDetails?.result[indexPath.row + 20 ]
+        cell.layer.borderColor = UIColor.darkGray.cgColor
+        cell.layer.borderWidth = 0.3
+
         
         switch index {
             // FootBall
@@ -224,10 +229,10 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 5
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        return 5
     }
     
     
@@ -239,6 +244,12 @@ class MainViewController: UIViewController , UICollectionViewDelegate , UICollec
             return CGSize(width: 150, height: 150)
         }
         return CGSize(width: UIScreen.main.bounds.width/1.5, height: UIScreen.main.bounds.height/5)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if collectionView == upComingCell{
+            return UIEdgeInsets(top: 1, left: 5, bottom: 1, right: 5)
+        }
+        return UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
     }
 }
 
