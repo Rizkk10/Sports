@@ -64,7 +64,7 @@ extension FavoriteTeam: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = TableFavoriteTeam.dequeueReusableCell(withIdentifier: "favoritecell") as! FavoriteTeamCell
-        
+        //        cell.c
         let favoritePlayer = favoritePlayers[indexPath.row]
         let playerName = favoritePlayer.value(forKey: "name") as? String
         cell.FavoriteTeamName.text = playerName
@@ -82,7 +82,7 @@ extension FavoriteTeam: UITableViewDataSource, UITableViewDelegate {
             // Remove the corresponding data item from your data source
             
             
-           
+            
             let favoritePlayer = favoritePlayers[indexPath.row]
             let playerName = favoritePlayer.value(forKey: "name") as? String
             let playerKey = favoritePlayer.value(forKey: "key") as? String
@@ -97,7 +97,7 @@ extension FavoriteTeam: UITableViewDataSource, UITableViewDelegate {
                 // Remove the player name from favorites
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritePlayer")
                 
-               
+                
                 request.predicate = NSPredicate(format: "name == %@", playerName ?? "")
                 
                 
@@ -115,7 +115,7 @@ extension FavoriteTeam: UITableViewDataSource, UITableViewDelegate {
                 } catch {
                     print("Error removing from favorites: \(error)")
                 }
-               
+                
                 
                 UserDefaults.standard.set(false, forKey: favKey)
                 self.favoritePlayers.remove(at: indexPath.row)
@@ -123,15 +123,20 @@ extension FavoriteTeam: UITableViewDataSource, UITableViewDelegate {
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 self.TableFavoriteTeam.reloadData()
             }))
-                                         
-                                          // Present the alert controller
-                                          self.present(alert, animated: true, completion: nil)
-                                          }}
-                                          
-                                          
-                                          //Delegate
-                                          func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-                return 100
-            }
-                                          
-                                          }
+            
+            // Present the alert controller
+            self.present(alert, animated: true, completion: nil)
+        }}
+    
+    
+    //Delegate
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection
+                                section: Int) -> String? {
+       return "Favorites"
+    }
+    
+}
