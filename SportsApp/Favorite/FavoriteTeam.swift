@@ -9,8 +9,6 @@ import UIKit
 import CoreData
 class FavoriteTeam: UIViewController {
     @IBOutlet weak var TableFavoriteTeam: UITableView!
-    //    var countriues = ["swsx","dwdw","wdwd","wdwdw","wdwdw","dwdw"]
-    // Core Data variables
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var context: NSManagedObjectContext!
     var favoritePlayers: [NSManagedObject] = []
@@ -27,21 +25,6 @@ class FavoriteTeam: UIViewController {
         
         
         
-        // Initialize Core Data context
-        //               context = appDelegate.persistentContainer.viewContext
-        //
-        //               // Fetch favorite players from Core Data
-        //               let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoritePlayer")
-        //               do {
-        //                   favoritePlayers = try context.fetch(fetchRequest)
-        //               } catch let error as NSError {
-        //                   print("Could not fetch. \(error), \(error.userInfo)")
-        //               }
-        //
-        //               // Reload table view
-        //               DispatchQueue.main.async {
-        //                   self.TableFavoriteTeam.reloadData()
-        //               }
     }
     
     
@@ -99,7 +82,7 @@ extension FavoriteTeam: UITableViewDataSource, UITableViewDelegate {
             // Remove the corresponding data item from your data source
             
             
-            //Ali
+           
             let favoritePlayer = favoritePlayers[indexPath.row]
             let playerName = favoritePlayer.value(forKey: "name") as? String
             let playerKey = favoritePlayer.value(forKey: "key") as? String
@@ -114,15 +97,10 @@ extension FavoriteTeam: UITableViewDataSource, UITableViewDelegate {
                 // Remove the player name from favorites
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritePlayer")
                 
-                
-                //            if self.sportType == "tennis"
-                //            {
-                //                request.predicate = NSPredicate(format: "name == %@", dataTeam?.result[0].player_name ?? "")
-                //            }
-                //            else {
+               
                 request.predicate = NSPredicate(format: "name == %@", playerName ?? "")
                 
-                //            }
+                
                 var favKey = "fav\(playerKey!)"
                 
                 print(favKey)
@@ -137,7 +115,7 @@ extension FavoriteTeam: UITableViewDataSource, UITableViewDelegate {
                 } catch {
                     print("Error removing from favorites: \(error)")
                 }
-                //Ali
+               
                 
                 UserDefaults.standard.set(false, forKey: favKey)
                 self.favoritePlayers.remove(at: indexPath.row)

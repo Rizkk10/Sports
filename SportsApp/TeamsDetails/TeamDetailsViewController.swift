@@ -132,23 +132,7 @@ class TeamDetailsViewController: UIViewController,UITableViewDataSource,UITableV
     
     
     @IBAction func favButtonAction(_ sender: Any) {
-        //        //add to fav
-        //        if (favButton.configuration?.image == UIImage(systemName: "heart")){
-        //            self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        //            favArray.append(teamName.text!)
-        //            print("add to fav")
-        //            UserDefaults.standard.set(false, forKey: keyNotFav)
-        //            UserDefaults.standard.set(true, forKey: keyFav)
-        //        }
-        //        //remove from fav
-        //        else if (favButton.configuration?.image == UIImage(systemName: "heart.fill")){
-        //            self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        //            print("remove to fav")
-        //            UserDefaults.standard.set(true, forKey: keyNotFav)
-        //            UserDefaults.standard.set(false, forKey: keyFav)
-        //
-        //        }
-        
+       
         favoriteButtonTapped()
         
     }
@@ -272,9 +256,7 @@ extension TeamDetailsViewController {
             }
         }
         //MARK: - make the cell look round
-        //cell.contentView.layer.cornerRadius = cell.contentView.frame.height / 2.5
-        //make the image look round
-        //cell.playerImg.layer.cornerRadius = cell.playerImg.frame.height / 2.5
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -378,16 +360,10 @@ extension TeamDetailsViewController {
             // Remove the player name from favorites
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritePlayer")
             
-            
-            //            if self.sportType == "tennis"
-            //            {
-            //                request.predicate = NSPredicate(format: "name == %@", dataTeam?.result[0].player_name ?? "")
-            //            }
-            //            else {
+          
             request.predicate = NSPredicate(format: "name == %@", dataTeam?.result[0].team_name ?? "")
             
-            //            }
-            
+           
             
             request.returnsObjectsAsFaults = false
             do {
@@ -411,20 +387,14 @@ extension TeamDetailsViewController {
             let favoritePlayer = NSManagedObject(entity: entity, insertInto: context)
             
             
-            //
-            //            if self.sportType == "tennis"
-            //            {
-            //                favoritePlayer.setValue(dataTeam?.result[0].player_name, forKey: "name")
-            //
-            //            }
-            //            else {
+            
             favoritePlayer.setValue(dataTeam?.result[0].team_name, forKey: "name")
             favoritePlayer.setValue(teamKey, forKey: "key")
-            //            }
+            
             
             do {
                 try context.save()
-            //    isFavorite = true
+            
             } catch {
                 print("Error adding to favorites: \(error)")
             }

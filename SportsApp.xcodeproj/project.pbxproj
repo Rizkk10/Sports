@@ -120,34 +120,106 @@
 		F01C9659299DBD4E00843CF9 /* SportsApp */ = {
 			isa = PBXGroup;
 			children = (
-				F01C965A299DBD4E00843CF9 /* AppDelegate.swift */,
-				F01C965C299DBD4E00843CF9 /* SceneDelegate.swift */,
-				F01C965E299DBD4E00843CF9 /* ViewController.swift */,
-				F01C9660299DBD4E00843CF9 /* Main.storyboard */,
-				F098D7FB29A0B7AE00794988 /* CollectionViewCell.swift */,
-				F0810C84299DF50F0054DCB6 /* SportsTableViewController.swift */,
-				F066A954299F2B9400884F6D /* SportsContinue.swift */,
-				7B65712529A11C2800243A4F /* TableViewCell.swift */,
-				F01C9665299DBD5000843CF9 /* LaunchScreen.storyboard */,
+				F05BC46629AC04D500426178 /* View */,
+				F05BC46529AC04BC00426178 /* Comman */,
+				F05BC46429AC049400426178 /* DetailsResponse */,
+				F05BC46329AC046B00426178 /* Favorite */,
+				F05BC46229AC044D00426178 /* TeamsDetails */,
+				F05BC46129AC043800426178 /* SplashScreen */,
+				F05BC46029AC03FF00426178 /* DetailsOfLeagues */,
+				F05BC45F29AC03B700426178 /* League */,
+				F05BC45E29AC039500426178 /* SportsTypes */,
 				F01C9668299DBD5000843CF9 /* Info.plist */,
-				F098D7F929A0B78000794988 /* Assets.xcassets */,
-				F066A956299F4C9E00884F6D /* MainViewController.swift */,
-				F08980D629A0768C005E4A8F /* MainViewContinue.swift */,
-				F066A958299F4D1500884F6D /* UpComingCollectionViewCell.swift */,
-				F066A95A299F4D4200884F6D /* LatestResultsCollectionViewCell.swift */,
-				F066A95C299F4D5000884F6D /* TeamsCollectionViewCell.swift */,
-				7B7D9CE329A274E1006B416B /* DetailsResponse.swift */,
-				D8A8768029A3D36F002EDB3B /* 2.json */,
-				D8A8767C29A3D2A5002EDB3B /* SplashTabBarController.swift */,
-				D8A8767E29A3D2C8002EDB3B /* SplashViewController.swift */,
-				D8A8768229A3D6F4002EDB3B /* TeamResponse.swift */,
-				D8A8768429A3D738002EDB3B /* TeamDetailsViewController.swift */,
-				D8A8768629A3D7DC002EDB3B /* playersTableViewCell.swift */,
-				33613F4129A66FA5006ECDE4 /* FavoriteTeam.swift */,
-				33613F4229A66FA5006ECDE4 /* FavoriteTeamCell.swift */,
 				33613F3E29A66464006ECDE4 /* SportsApp.xcdatamodeld */,
 			);
 			path = SportsApp;
+			sourceTree = "<group>";
+		};
+		F05BC45E29AC039500426178 /* SportsTypes */ = {
+			isa = PBXGroup;
+			children = (
+				F098D7FB29A0B7AE00794988 /* CollectionViewCell.swift */,
+				F01C965E299DBD4E00843CF9 /* ViewController.swift */,
+			);
+			path = SportsTypes;
+			sourceTree = "<group>";
+		};
+		F05BC45F29AC03B700426178 /* League */ = {
+			isa = PBXGroup;
+			children = (
+				F0810C84299DF50F0054DCB6 /* SportsTableViewController.swift */,
+				7B65712529A11C2800243A4F /* TableViewCell.swift */,
+				F066A954299F2B9400884F6D /* SportsContinue.swift */,
+			);
+			path = League;
+			sourceTree = "<group>";
+		};
+		F05BC46029AC03FF00426178 /* DetailsOfLeagues */ = {
+			isa = PBXGroup;
+			children = (
+				F066A95C299F4D5000884F6D /* TeamsCollectionViewCell.swift */,
+				F066A95A299F4D4200884F6D /* LatestResultsCollectionViewCell.swift */,
+				F066A958299F4D1500884F6D /* UpComingCollectionViewCell.swift */,
+				F08980D629A0768C005E4A8F /* MainViewContinue.swift */,
+				F066A956299F4C9E00884F6D /* MainViewController.swift */,
+			);
+			path = DetailsOfLeagues;
+			sourceTree = "<group>";
+		};
+		F05BC46129AC043800426178 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D8A8767C29A3D2A5002EDB3B /* SplashTabBarController.swift */,
+				D8A8767E29A3D2C8002EDB3B /* SplashViewController.swift */,
+				D8A8768029A3D36F002EDB3B /* 2.json */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		F05BC46229AC044D00426178 /* TeamsDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D8A8768429A3D738002EDB3B /* TeamDetailsViewController.swift */,
+				D8A8768229A3D6F4002EDB3B /* TeamResponse.swift */,
+				D8A8768629A3D7DC002EDB3B /* playersTableViewCell.swift */,
+			);
+			path = TeamsDetails;
+			sourceTree = "<group>";
+		};
+		F05BC46329AC046B00426178 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				33613F4229A66FA5006ECDE4 /* FavoriteTeamCell.swift */,
+				33613F4129A66FA5006ECDE4 /* FavoriteTeam.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		F05BC46429AC049400426178 /* DetailsResponse */ = {
+			isa = PBXGroup;
+			children = (
+				7B7D9CE329A274E1006B416B /* DetailsResponse.swift */,
+			);
+			path = DetailsResponse;
+			sourceTree = "<group>";
+		};
+		F05BC46529AC04BC00426178 /* Comman */ = {
+			isa = PBXGroup;
+			children = (
+				F098D7F929A0B78000794988 /* Assets.xcassets */,
+				F01C965A299DBD4E00843CF9 /* AppDelegate.swift */,
+				F01C965C299DBD4E00843CF9 /* SceneDelegate.swift */,
+			);
+			path = Comman;
+			sourceTree = "<group>";
+		};
+		F05BC46629AC04D500426178 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F01C9665299DBD5000843CF9 /* LaunchScreen.storyboard */,
+				F01C9660299DBD4E00843CF9 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

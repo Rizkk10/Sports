@@ -9,7 +9,7 @@ import Foundation
 
 extension SportsTableViewController {
     
-  
+  // football and basketball and tennis
     func fetchData(apiLink : String) {
         guard let url = URL(string: "\(apiLink)") else {
             print("Invalid URL")
